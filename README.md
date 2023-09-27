@@ -6,5 +6,5 @@ I developed this module during my masters in chemistry at the University of Otag
 
 An example script to produce a figure is given at /examples/example_script.py. The saved output of this script is given in .pdf form (converted from .eps) and can be seen below. 
 
-![Image](/examples/fed_example.pdf)
+![Image](/examples/fed_example.svg)
 
