@@ -6,7 +6,7 @@ system1 = '#e0bf00'
 system2 = '#545663'
 
 # Setting the "taf" variable to the "FED" class from within the "free_energy_diagrams" module. Also setting some deffault properties.
-reaction = FED(reaction_coords=['Clean', 'adsorption', 'adsorption', 'diffusion', 'Clean'], level_width=3.5, barrier_width=1)
+reaction = FED(reaction_coords=['Clean', 'Adsorption', 'Adsorption', 'Diffusion', 'Clean'], level_width=3.5, barrier_width=1)
 
 # Adding the multiple energy levels of the overall free energy diageram and distinguishing which level relates to which system using colour.
 reaction.add_level(0, color='k')
