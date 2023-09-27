@@ -11,8 +11,8 @@ reaction = FED(reaction_coords=['Clean', 'adsorption', 'adsorption', 'diffusion'
 # Adding the multiple energy levels of the overall free energy diageram and distinguishing which level relates to which system using colour.
 reaction.add_level(0, color='k')
 
-reaction.add_level(0.40, top_text='0.40', color=system1, label='system1')
-reaction.add_level(0.30, bottom_text='0.30', position='l', color=system2, label='system2')
+reaction.add_level(0.40, top_text='0.40', color=system1, label='System 1')
+reaction.add_level(0.30, bottom_text='0.30', position='l', color=system2, label='System 2')
 
 reaction.add_level(1.00, top_text='1.00', color=system1)
 reaction.add_level(0.70, bottom_text='0.70', position='l', color=system2)
@@ -36,5 +36,5 @@ reaction.add_barrier(1.60, 6, 8, ls='--',  color=system1)
 reaction.add_barrier(1.40, 7, 8, ls='--', color=system2)
 
 # Plotting and showing the figure.
-au_hey.plot()
+reaction.plot()
 plt.show()
