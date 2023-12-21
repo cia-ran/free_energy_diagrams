@@ -3,7 +3,7 @@
 This module is designed to produce free energy diagrams given a set of
 thermodynamic energy levels and kinetic barriers.
 
-It is based off a script written by Giacomo Marchioro called
+It was heavily based off a script written by Giacomo Marchioro called
 PyEnergyDiagrams at their GitHub: giacomomarchioro.
 
 """
@@ -29,8 +29,8 @@ class FED():
                 dimension = 'auto',
                 space = 'auto',
                 offset = 'auto',
-                ylabel = 'Energy (eV)',
-                xlabel = 'Reaction Progress'):
+                ylabel = 'Free energy (eV)',
+                xlabel = 'Reaction progress'):
 
         self.reaction_coords = reaction_coords
         self.dimension = dimension
@@ -61,7 +61,7 @@ class FED():
         
 
     def add_level(self, energy, bottom_text='', position=None, top_text='',
-                left_text='', right_text='', color='k', label=''):
+                left_text='', right_text='', color='k', label=None):
         '''
         This is a method of the FED class. It will save all of the data
         for a new energy level into the lists required.
@@ -87,6 +87,8 @@ class FED():
             The text to the right of the level. (default = '')
         color : str
             Colour of the level. (default = 'k')
+        label : str
+            Label or legend for the set of levels. (default = None)
 
         Returns
         -------
@@ -339,14 +341,6 @@ class FED():
         for i in self.barriers:
             ax.plot(i[0], i[1], ls=i[2],
                     linewidth=self.barrier_width, color=i[3])
-        plt.legend(loc='upper left')            
 
-
-
-
-                    
-
-            
-                    
-            
-        
+        if all(x == self.legends[0] for x in self.legends) == False:
+            plt.legend(loc='upper left')
