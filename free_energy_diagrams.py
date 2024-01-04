@@ -24,13 +24,15 @@ class FED():
     def __init__(self,
                 reaction_coords = [],
                 aspect='equal',
-                level_width=3,
-                barrier_width=1.5,
+                level_width = 3,
+                barrier_width = 1.5,
                 dimension = 'auto',
                 space = 'auto',
                 offset = 'auto',
                 ylabel = 'Free energy (eV)',
-                xlabel = 'Reaction progress'):
+                xlabel = 'Reaction progress',
+                max_xlim = None,
+                max_ylim= None):
 
         self.reaction_coords = reaction_coords
         self.dimension = dimension
@@ -41,6 +43,8 @@ class FED():
         self.barrier_width = barrier_width
         self.xlabel = xlabel
         self.ylabel = ylabel
+        self.max_xlim = max_xlim
+        self.max_ylim = max_ylim
 
         self.pos_number = 0
         self.energies = []
@@ -344,3 +348,10 @@ class FED():
 
         if all(x == self.legends[0] for x in self.legends) == False:
             plt.legend(loc='upper left')
+
+        axlim = plt.gca()
+        if self.max_xlim != None:
+            axlim.set_xlim([None, self.max_xlim])
+        elif self.max_ylim != None:
+            axlim.set_ylim([None, self.max_ylim])   
+        
